@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        #canvas{
+            width: 400px;
+            height: 400px;
+            background: lawngreen;
+            /* translate: ; */
+        }
+    </style>
+</head>
+<body>
+    <!-- <canvas id="canvas" width="400" height="400"></canvas> -->
+    <canvas id="canvas"></canvas>
+    <script>
+        /** 
+            canvas:画布
+                1、有默认的宽高   300 150
+                2、只支持 width height属性，通过css写的宽高，默认拉伸（画的图形拉伸变形，画布压缩了）
+                3、设置canvas的宽高有两种方式：一种是以属性的方式加宽高  一种通过JS设置宽高
+                4、只支持两种画图的方法
+                   ① 矩形  
+                    fillStyle:设置矩形的颜色（背景色）
+                    fillRect():画矩形的方法
+                    clearRect():清除矩形内的图画，使其变为透明
+                    fill():填充背景色
+                   ② 路径 （多个坐标点进行连线形成了路径）stroke():坐标点连线
+                    beginPath():开始画图
+                    moveTo(): 起始坐标
+                    lineTo(): 坐标连线
+                    closePath():闭合连线（闭合最后的连线）
+                    stroke(): 坐标点连线
+
+        */
+        // 画圆 
+        // var canvas = document.getElementById('canvas');
+        // // 重新计算canvas的宽高
+        // width = canvas.clientWidth;
+        // height = canvas.clientHeight;
+        // canvas.width = width;
+        // canvas.height = height;
+
+        // var pen = canvas.getContext('2d');
+        // // 平移
+        // pen.translate(150,150);
+        // pen.lineWidth = 10;
+        // pen.strokeStyle = 'red';
+        // pen.arc(0,0,100,0,2*Math.PI,true);
+        // pen.fillStyle = 'red';
+        // pen.fill();
+        // pen.stroke();
+
+        // fillRect矩形
+        // var canvas = document.getElementById('canvas');
+        // // 重新计算canvas的宽高
+        // width = canvas.clientWidth;
+        // height = canvas.clientHeight;
+        // canvas.width = width;
+        // canvas.height = height;
+
+        // var pen = canvas.getContext('2d');
+        // // pen.fillStyle = 'red';
+        // // pen.fillRect(50,50,100,100);
+
+        // // pen.strokeStyle = 'red';
+        // // pen.strokeRect(50,50,100,100);
+
+        // pen.fillStyle = 'red';
+        // pen.fillRect(50,50,100,100);
+        // pen.clearRect(58,58,84,84);
+
+// 空心矩形
+        // var canvas = document.getElementById('canvas');
+        // // 重新计算canvas的宽高
+        // width = canvas.clientWidth;
+        // height = canvas.clientHeight;
+        // canvas.width = width;
+        // canvas.height = height;
+
+        // var pen = canvas.getContext('2d');
+        // pen.lineWidth = 10;
+        // pen.strokeStyle = 'red';
+        // // pen.fillStyle = 'red';
+        // // 画图开始
+        // pen.beginPath();
+        // // 开始坐标
+        // pen.moveTo(100,100);
+        // // 连接 坐标点
+        // pen.lineTo(200,100);
+        // pen.lineTo(200,200);
+        // pen.lineTo(100,200);
+        // // pen.lineTo(100,100);
+        // // 闭合
+        // pen.closePath()
+        // // 连线
+        // pen.stroke();
+        // 填充背景
+        // pen.fill();
+    
+// 空心三角形
+        function initCanvas(_id){
+            var id = document.getElementById(_id);
+            id.width = id.clientWidth;
+            id.height = id.clientHeight;
+            if(id.getContext) return id.getContext('2d');
+        }
+
+        // var pen = initCanvas('canvas');
+        // pen.strokeStyle = 'red';
+        // pen.fillStyle = 'red';
+        // pen.beginPath();
+        // pen.moveTo(100,50);
+        // pen.lineTo(150,150);
+        // pen.lineTo(50,150);
+        // // pen.lineTo(100,50);
+        // // pen.closePath();
+        // // pen.stroke();
+        // pen.fill();
+
+        var pen = initCanvas('canvas');
+        pen.lineWidth = 2;
+        // pen.strokeStyle = 'red';
+        pen.arc(100,100,50,Math.PI/2,3*Math.PI/2,true);
+        pen.fillStyle = '#000';
+        pen.fill();
+        // pen.stroke();
+
+    </script>
+</body>
+</html>
